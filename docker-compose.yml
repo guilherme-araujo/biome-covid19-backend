@@ -8,6 +8,7 @@ services:
             - "5000:5000"
         volumes:
             - .:/usr/app
+            - /usr/app/node_modules
             - ${VOL_FOLDER}:/usr/app/external
         environment:
             - COMMAND=${COMMAND}
