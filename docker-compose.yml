@@ -9,5 +9,4 @@ services:
         command: npm start
         volumes:
             - .:/usr/app
-            - /home/gfaraujo/code/covid-biome/public/raw:/usr/app/external
-
+            - ${VOL_FOLDER}:/usr/app/external
