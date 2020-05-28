@@ -6,7 +6,8 @@ services:
         restart: always
         ports:
             - "5000:5000"
-        command: npm start
         volumes:
             - .:/usr/app
             - ${VOL_FOLDER}:/usr/app/external
+        environment:
+            - COMMAND=${COMMAND}
