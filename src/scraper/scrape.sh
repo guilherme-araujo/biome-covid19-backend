@@ -17,3 +17,7 @@ python3 convert_json.py
 python3 convert_json-plot2.py
 python3 convert_json-plot3.py
 python3 convert_json-plot4.py
+
+node post-script.js
+
+mv covid_norm* ../../external

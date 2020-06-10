@@ -9,7 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.19.2",
     "csv-parser": "^2.3.3",
-    "dateformat": "^3.0.3"
+    "dateformat": "^3.0.3",
+    "level": "^6.0.1"
   }
 }
