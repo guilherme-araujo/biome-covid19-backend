@@ -66,9 +66,10 @@ Stop it with
 
 Run 
 
-    docker exec -it covid-biome-backend_app_1 /usr/app/src/scraper/scrape.sh 
+    docker exec -it biome-covid19-backend_app_1 /usr/app/src/scraper/scrape.sh 
     
 to scrape new daily data from owid - Our World in Data https://ourworldindata.org/coronavirus
+Replace the container name if needed according to docker ps
 
 
 ## Default data

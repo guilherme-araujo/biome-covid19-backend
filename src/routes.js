@@ -54,7 +54,7 @@ routes.get('/covid_norm/:date?', async function (req, res) {
     try{
         date = req.params.date ?? JSON.parse(await db.get('active-date'));        
         
-        fs.readFile('external/covid_norm-'+date+'.json', 'utf8', function(err, data) {
+        fs.readFile('external/'+date+'/covid_norm-'+date+'.json', 'utf8', function(err, data) {
             if (err) {
                 res.send('unavaliable');
             } else {
@@ -70,7 +70,7 @@ routes.get('/covid_norm/:date?', async function (req, res) {
 routes.get('/covid_norm-plot2/:date?', async function (req, res) {    
     try{
         date = req.params.date ?? JSON.parse(await db.get('active-date'));
-        fs.readFile('external/covid_norm-plot2-'+date+'.json', 'utf8', function(err, data) {
+        fs.readFile('external/'+date+'/covid_norm-plot2-'+date+'.json', 'utf8', function(err, data) {
             if (err) {
                 res.send('unavaliable');
             } else {
@@ -85,7 +85,7 @@ routes.get('/covid_norm-plot2/:date?', async function (req, res) {
 routes.get('/covid_norm-plot3/:date?', async function (req, res) {    
     try{
         date = req.params.date ?? JSON.parse(await db.get('active-date'));
-        fs.readFile('external/covid_norm-plot3-'+date+'.json', 'utf8', function(err, data) {
+        fs.readFile('external/'+date+'/covid_norm-plot3-'+date+'.json', 'utf8', function(err, data) {
             if (err) {
                 res.send('unavaliable');
             } else {
@@ -100,7 +100,7 @@ routes.get('/covid_norm-plot3/:date?', async function (req, res) {
 routes.get('/covid_norm-plot4/:date?', async function (req, res) {    
     try{
         date = req.params.date ?? JSON.parse(await db.get('active-date'));
-        fs.readFile('external/covid_norm-plot4-'+date+'.json', 'utf8', function(err, data) {
+        fs.readFile('external/'+date+'/covid_norm-plot4-'+date+'.json', 'utf8', function(err, data) {
             if (err) {
                 res.send('unavaliable');
             } else {
@@ -113,7 +113,7 @@ routes.get('/covid_norm-plot4/:date?', async function (req, res) {
 });
 
 routes.get('/covid_norm-06-01', function (req, res) {    
-    fs.readFile('external/covid_norm-06-01.json', 'utf8', function(err, data) {
+    fs.readFile('external/'+date+'/covid_norm-06-01.json', 'utf8', function(err, data) {
         if (err) throw err;
         
         res.send(data);
@@ -121,7 +121,7 @@ routes.get('/covid_norm-06-01', function (req, res) {
 });
 
 routes.get('/covid_norm-plot2-06-01', function (req, res) {    
-    fs.readFile('external/covid_norm-plot2-06-01.json', 'utf8', function(err, data) {
+    fs.readFile('external/'+date+'/covid_norm-plot2-06-01.json', 'utf8', function(err, data) {
         if (err) throw err;
         
         res.send(data);
@@ -129,7 +129,7 @@ routes.get('/covid_norm-plot2-06-01', function (req, res) {
 });
 
 routes.get('/covid_norm-plot3-06-01', function (req, res) {    
-    fs.readFile('external/covid_norm-plot3-06-01.json', 'utf8', function(err, data) {
+    fs.readFile('external/'+date+'/covid_norm-plot3-06-01.json', 'utf8', function(err, data) {
         if (err) throw err;
         
         res.send(data);
@@ -137,7 +137,7 @@ routes.get('/covid_norm-plot3-06-01', function (req, res) {
 });
 
 routes.get('/covid_norm-plot4-06-01', function (req, res) {    
-    fs.readFile('external/covid_norm-plot4-06-01.json', 'utf8', function(err, data) {
+    fs.readFile('external/'+date+'/covid_norm-plot4-06-01.json', 'utf8', function(err, data) {
         if (err) throw err;
         
         res.send(data);

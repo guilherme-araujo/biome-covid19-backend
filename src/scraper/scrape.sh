@@ -18,6 +18,13 @@ python3 convert_json-plot2.py
 python3 convert_json-plot3.py
 python3 convert_json-plot4.py
 
-node post-script.js
+DATE=$(node post-script.js)
 
-mv covid_norm* ../../external
+python3 plot1.py $DATE
+python3 plot2.py $DATE
+python3 plot3.py $DATE
+python3 plot4.py $DATE
+
+mkdir ../../external/$DATE
+mv covid_norm* ../../external/$DATE
+mv *.png ../../external/$DATE
