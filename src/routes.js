@@ -1,6 +1,7 @@
 const express = require('express');
 const fs = require('fs');
 var level = require('level')
+var path = require('path')
 
 const routes = express.Router();
 var db = level('db')
@@ -110,6 +111,41 @@ routes.get('/covid_norm-plot4/:date?', async function (req, res) {
     } catch(err){
         res.send(err.message);
     } 
+});
+
+routes.get('/plot-img/:num/:date?', async function (req, res, next) {    
+    
+    try{
+        date = req.params.date ?? JSON.parse(await db.get('active-date'));
+        num = req.params.num;
+        /*fs.readFile('external/'+date+'/'+date+'-'+num+'.png', function(err, data) {
+            if (err) throw err;
+            res.set('Content-type','image/png')
+            res.send(data);
+        });*/
+        var options = {
+            root: path.join(__dirname, '../'),
+            dotfiles: 'deny',
+            headers: {
+                'x-timestamp': Date.now(),
+                'x-sent': true
+            }
+        };
+
+        var fileName = 'external/'+date+'/'+date+'-'+num+'.png';
+        res.sendFile(fileName, options, function(err) {
+            if (err){
+                next(err.message);
+            } else {
+                console.log('Sent: ',fileName);
+            }
+        })
+
+    } catch(err){
+        res.send(err.message);
+    } 
+
+    
 });
 
 routes.get('/covid_norm-06-01', function (req, res) {    
