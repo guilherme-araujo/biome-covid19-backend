@@ -30,9 +30,6 @@ let confirmed_history = {
 writeStr="country,code,date,cumulative,confirmed\n";
 
 for(let country of country_list){
-    day1 = null;
-    day2 = null;
-    day3 = null;
     for (let l in obj[country["code"]]){        
         let line = obj[country["code"]][l];
         let convDate = new Date(line['date']);
@@ -40,7 +37,7 @@ for(let country of country_list){
         if(confirmed_history[country["code"]]){
             confirmed_history[country["code"]][convDate] = {new: line['new_cases'], total: line['total_cases']};
         }
-        if(year==='2020'){
+        if(year==='2020' && line['total_cases'] && line['new_cases'] ){
             convDateStr = dateFormat(convDate, "dd/mm/yyyy");
             newLine = country["name"]+","+country["code"]+","+convDateStr+','+line['total_cases']+','+line['new_cases'];
             writeStr += newLine+"\n";
@@ -72,7 +69,7 @@ for(let country of country_list2){
         let line = obj[country["code"]][l];
         let convDate = new Date(line['date']);
         let year = dateFormat(convDate,'yyyy');
-        if(year==='2020'){
+        if(year==='2020' && line['total_deaths'] && line['new_deaths']){
             convDateStr = dateFormat(convDate, "dd/mm/yyyy");
             newLine = country["name"]+","+country["code"]+","+convDateStr+','+line['total_deaths']+','+line['new_deaths'];
             writeStr += newLine+"\n";
