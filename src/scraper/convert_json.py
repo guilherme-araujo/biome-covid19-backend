@@ -20,6 +20,8 @@ for date in sorted_dates:
     for country in countries:
         cumulative = this_date.loc[this_date["code"]==country,"cumulative"]
         country_cumulative = int(cumulative) if not cumulative.empty else 0
+        if(country_cumulative==0):
+            continue
         line.update({ 
             country: country_cumulative 
         })
