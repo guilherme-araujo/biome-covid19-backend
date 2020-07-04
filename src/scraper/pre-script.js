@@ -30,8 +30,8 @@ let confirmed_history = {
 writeStr="country,code,date,cumulative,confirmed\n";
 
 for(let country of country_list){
-    for (let l in obj[country["code"]]){        
-        let line = obj[country["code"]][l];
+    for (let l in obj[country["code"]]["data"]){        
+        let line = obj[country["code"]]["data"][l];
         let convDate = new Date(line['date']);
         let year = dateFormat(convDate,'yyyy');
         if(confirmed_history[country["code"]]){
@@ -65,8 +65,8 @@ let country_list2 = [
 writeStr="country,code,date,total,daily\n";
 
 for(let country of country_list2){
-    for (let l in obj[country["code"]]){
-        let line = obj[country["code"]][l];
+    for (let l in obj[country["code"]]["data"]){
+        let line = obj[country["code"]]["data"][l];
         let convDate = new Date(line['date']);
         let year = dateFormat(convDate,'yyyy');
         if(year==='2020' && line['total_deaths'] && line['new_deaths']){
