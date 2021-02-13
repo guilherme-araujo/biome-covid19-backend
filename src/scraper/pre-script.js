@@ -86,7 +86,7 @@ const countryList3 = [
     {csv_str: 'United States - units unclear', name: 'USA', code: 'USA', cutoffDate: new Date('2020-03-07')},
     {csv_str: 'Italy - tests performed', name: 'Italy', code: 'ITA', cutoffDate: new Date('2020-02-27')},
     {csv_str: 'United Kingdom', name: 'UK', code: 'GBR', cutoffDate: new Date('2020-02-27')},
-    {csv_str: 'Belgium - units unclear', name: 'Belgium', code: 'BEL', cutoffDate: new Date('2020-03-01')}
+    {csv_str: 'Belgium', name: 'Belgium', code: 'BEL', cutoffDate: new Date('2020-03-01')}
 ];
 
 let rollingAvg = {};
