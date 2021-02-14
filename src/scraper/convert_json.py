@@ -12,6 +12,7 @@ countries = covid_norm2["code"].unique()
 
 result = []
 
+i=0
 for date in sorted_dates:
     this_date = covid_norm2.loc[covid_norm2["date"]==date]
     
@@ -26,9 +27,12 @@ for date in sorted_dates:
             country: country_cumulative 
         })
 
-    result.append(line)
+    if i % 7 == 0:
+        result.append(line)
+    i+=1
 
-dataf = pd.DataFrame(result)
+df = pd.DataFrame(result)
+dataf = df[df.index % 3 == 0]
 pd.DataFrame.from_dict(result).to_json('covid_norm-'+pd.to_datetime('today').strftime('%m-%d')+'.json', indent=4, orient="records")
 
 

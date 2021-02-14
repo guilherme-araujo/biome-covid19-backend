@@ -15,7 +15,7 @@ axios.get('http://localhost:5000/covid19-api/v1/dates')
     return axios.post('http://localhost:5000/covid19-api/v1/dates',params);
 }).then(function(res) {
     updatedDates = res.data;
-    newActiveDate = updatedDates[updatedDates.length-2];
+    newActiveDate = updatedDates[updatedDates.length-1];
     params = {
         date: newActiveDate,
         key: "2ba9d7c0-ab3c-11ea-8b6e-0800200c9a66"

@@ -10,6 +10,7 @@ sorted_dates.sort()
 countries = covid_norm2["country"].unique()
 
 result = []
+i = 0
 for date in sorted_dates:
     this_date = covid_norm2.loc[covid_norm2["date"]==date]
     line = {"date": pd.to_datetime(date).strftime('%m/%d') }
@@ -24,7 +25,11 @@ for date in sorted_dates:
             country: country_media3
         })
 
-    result.append(line)
+    if i % 7 == 0:
+        result.append(line)
 
-dataf = pd.DataFrame(result)
+    i+=1
+
+df = pd.DataFrame(result)
+dataf = df[df.index % 3 == 0]
 pd.DataFrame.from_dict(result).to_json('covid_norm-plot3-'+pd.to_datetime('today').strftime('%m-%d')+'.json', indent=4, orient="records")

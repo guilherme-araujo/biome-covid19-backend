@@ -51,7 +51,7 @@ g.fig.text(x=0.5, y=0.01,
 for ax in g.axes.flat:
     labels = ax.get_xticklabels()
     for i,l in enumerate(labels):
-        if ((i+4)%7 != 0 ): labels[i] = ''
+        if ((i+4)%21 != 0 ): labels[i] = ''
         ax.set_xticklabels(labels, rotation=90)
 
 g.fig.tight_layout()
